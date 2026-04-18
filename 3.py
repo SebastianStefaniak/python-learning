@@ -81,3 +81,6 @@ tc['fare_level'] = tc['Fare'].apply(lambda x: 'low' if x < 50 else ('high' if x>
 
 #5)
 print(round(tc.groupby('age_group')['Survived'].mean(),2))
+
+#newer Pandas prefers tc['Age'] = tc['Age'].fillna(...) over inplace=True.
+#Y tc = tc.dropna() BEFORE filling missing values — so it dropped all 708 rows with any missing data first, leaving only 183 passengers instead of 891
